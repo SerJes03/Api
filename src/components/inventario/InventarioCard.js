@@ -13,7 +13,7 @@ export const InventarioCard = (props) => {
 
     const listarUsuarios = async ()=>{
       try {
-       
+      
         const {data} = await getUsuarioPorId(inventario.usuario);
         console.log(data);
         setUsuario(data);
@@ -24,15 +24,13 @@ export const InventarioCard = (props) => {
       }
   
     }
-  
-    
     useEffect(()=>{
       listarUsuarios();
     },[])
 
     const listarMarcas = async ()=>{
       try {
-       
+      
         const {data} = await getMarcaPorId(inventario.marca);
         console.log(data);
         setMarca(data);

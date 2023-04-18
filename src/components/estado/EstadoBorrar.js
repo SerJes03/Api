@@ -29,7 +29,7 @@ export const EstadoBorrar = () => {
     useEffect(() =>{
         getEstado();
 
-    },[]);
+    },[estadoId]);
 
 
     useEffect(() =>{

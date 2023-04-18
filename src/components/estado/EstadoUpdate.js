@@ -9,17 +9,14 @@ export const EstadoUpdate = () => {
     const [valoresForm, setValoresForm] = useState({});
     const {name ='', estado  = true} = valoresForm;
     const [estados, setEstados] = useState({});
-    const {estadoId = ''} = useParams();
+    const { estadoId = '' } = useParams();
     console.log(estadoId)
 
     const getEstado = async () =>{
         try {
-
             const {data} = await getEstadoPorId(estadoId);
-            console.log(data);
             setEstados(data);     
         } catch (error) {
-            
             console.log(error)
         }
 
@@ -29,7 +26,7 @@ export const EstadoUpdate = () => {
     useEffect(() =>{
         getEstado();
 
-    },[]);
+    },[estadoId]);
 
 
     useEffect(() =>{
@@ -41,10 +38,6 @@ export const EstadoUpdate = () => {
         }
 
     }, [estados]);
-
-
-
-
 
     const handleOnChange = ({target}) => {
         const {name, value} = target;
@@ -65,7 +58,6 @@ export const EstadoUpdate = () => {
 
             })
             Swal.showLoading();
-
 
             const {data} = await editarEstado(estadoId, estados);
             console.log(data)
